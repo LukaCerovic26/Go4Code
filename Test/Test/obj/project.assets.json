@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/lukacerovic/Desktop/Go4Code/Test/Test/Test.csproj",
+      "projectUniqueName": "/Users/lukacerovic/Desktop/Go4Code/Go4Code/Test/Test/Test.csproj",
       "projectName": "Test",
-      "projectPath": "/Users/lukacerovic/Desktop/Go4Code/Test/Test/Test.csproj",
+      "projectPath": "/Users/lukacerovic/Desktop/Go4Code/Go4Code/Test/Test/Test.csproj",
       "packagesPath": "/Users/lukacerovic/.nuget/packages/",
-      "outputPath": "/Users/lukacerovic/Desktop/Go4Code/Test/Test/obj/",
+      "outputPath": "/Users/lukacerovic/Desktop/Go4Code/Go4Code/Test/Test/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
