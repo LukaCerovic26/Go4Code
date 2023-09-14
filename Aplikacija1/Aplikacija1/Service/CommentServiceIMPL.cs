@@ -4,11 +4,11 @@ using Aplikacija1.Repository;
 
 namespace Aplikacija1.Service
 {
-    public class CommentService
+    public class CommentServiceIMPL : ICommentService
     {
         private readonly ICommentRepository _commentRepository;
 
-        public CommentService(ICommentRepository commentRepository)
+        public CommentServiceIMPL(ICommentRepository commentRepository)
         {
             _commentRepository = commentRepository;
         }

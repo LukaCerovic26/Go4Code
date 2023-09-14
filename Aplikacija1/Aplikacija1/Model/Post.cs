@@ -12,4 +12,3 @@ namespace Aplikacija1.Model
         public ICollection<Like> Likes { get; set; }
     }
 }
-
