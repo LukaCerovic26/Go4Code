@@ -7,7 +7,7 @@ namespace Aplikacija1.Repository
     {
         User GetUserById(int userId);
         IEnumerable<User> GetAllUsers();
-        void AddUser(User user);
+        User AddUser(User user);
         void UpdateUser(User user);
         void DeleteUser(User user);
     }

@@ -97,3 +97,9 @@
 /Users/lukacerovic/Desktop/Go4Code/Go4Code/Aplikacija1/Aplikacija1/bin/Debug/net6.0/runtimes/win-x64/native/krb5_64.dll
 /Users/lukacerovic/Desktop/Go4Code/Go4Code/Aplikacija1/Aplikacija1/bin/Debug/net6.0/runtimes/win-x64/native/krbcc64.dll
 /Users/lukacerovic/Desktop/Go4Code/Go4Code/Aplikacija1/Aplikacija1/bin/Debug/net6.0/runtimes/browser/lib/net6.0/System.Text.Encodings.Web.dll
+/Users/lukacerovic/Desktop/Go4Code/Go4Code/Aplikacija1/Aplikacija1/bin/Debug/net6.0/AutoMapper.dll
+/Users/lukacerovic/Desktop/Go4Code/Go4Code/Aplikacija1/Aplikacija1/bin/Debug/net6.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+/Users/lukacerovic/Desktop/Go4Code/Go4Code/Aplikacija1/Aplikacija1/bin/Debug/net6.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+/Users/lukacerovic/Desktop/Go4Code/Go4Code/Aplikacija1/Aplikacija1/bin/Debug/net6.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+/Users/lukacerovic/Desktop/Go4Code/Go4Code/Aplikacija1/Aplikacija1/bin/Debug/net6.0/TourmalineCore.AspNetCore.JwtAuthentication.Core.dll
+/Users/lukacerovic/Desktop/Go4Code/Go4Code/Aplikacija1/Aplikacija1/bin/Debug/net6.0/TourmalineCore.AspNetCore.JwtAuthentication.Identity.dll

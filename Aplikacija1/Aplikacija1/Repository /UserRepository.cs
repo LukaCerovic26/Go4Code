@@ -1,13 +1,14 @@
 ﻿using System;
 using Aplikacija1.Model;
+using Aplikacija1.Repositories;
 
 namespace Aplikacija1.Repository
 {
     public class UserRepository : IUserRepository
     {
-        private readonly ApplicationDbContext _context;
+        private readonly AppDbContext _context;
 
-        public UserRepository(ApplicationDbContext context)
+        public UserRepository(AppDbContext context)
         {
             _context = context;
         }
@@ -22,10 +23,17 @@ namespace Aplikacija1.Repository
             return _context.Users.ToList();
         }
 
-        public void AddUser(User user)
+        public User AddUser(User user)
         {
-            _context.Users.Add(user);
+            var NewUser = new User
+            {
+                UserName = user.UserName
+        };
+
+            _context.Users.Add(NewUser);
             _context.SaveChanges();
+            return user;
+
         }
 
         public void UpdateUser(User user)

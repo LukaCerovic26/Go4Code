@@ -33,11 +33,11 @@ public class Startup
         });
 
         // Servis za User model
-        services.AddScoped<UserService, UserService>();
+        services.AddScoped<UserServiceIMPL, UserServiceIMPL>();
         services.AddScoped<IUserRepository, UserRepository>();
 
         // Servis za Post model
-        services.AddScoped<PostService, PostService>();
+        services.AddScoped<PostServiceIMPL, PostServiceIMPL>();
         services.AddScoped<IPostRepository, PostRepository>();
 
         // Servis za Comment model
@@ -45,7 +45,7 @@ public class Startup
         services.AddScoped<ICommentRepository, CommentRepository>();
 
         // Servis za Like model
-        services.AddScoped<LikeService, LikeService>();
+        services.AddScoped<LikeServiceIMPL, LikeServiceIMPL>();
         services.AddScoped<ILikeRepository, LikeRepository>();
     }
 

@@ -1,13 +1,14 @@
 ﻿using System;
 using Aplikacija1.Model;
+using Aplikacija1.Repositories;
 
 namespace Aplikacija1.Repository
 {
     public class CommentRepository : ICommentRepository
     {
-        private readonly ApplicationDbContext _context;
+        private readonly AppDbContext _context;
 
-        public CommentRepository(ApplicationDbContext context)
+        public CommentRepository(AppDbContext context)
         {
             _context = context;
         }

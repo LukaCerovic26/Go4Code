@@ -4,43 +4,32 @@ using Aplikacija1.Repository;
 
 namespace Aplikacija1.Service
 {
-	public class UserServiceIMPL
+	public class UserServiceIMPL : IUserService
 	{
-        public class UserService
+
+        public void AddUser(User user)
         {
-            private readonly IUserRepository _userRepository;
+            throw new NotImplementedException();
+        }
 
-            public UserService(IUserRepository userRepository)
-            {
-                _userRepository = userRepository;
-            }
+        public void DeleteUser(User user)
+        {
+            throw new NotImplementedException();
+        }
 
-            // Poslovna logika 
+        public IEnumerable<User> GetAllUsers()
+        {
+            throw new NotImplementedException();
+        }
 
-            public User GetUserById(int userId)
-            {
-                return _userRepository.GetUserById(userId);
-            }
+        public User GetUserById(int userId)
+        {
+            throw new NotImplementedException();
+        }
 
-            public IEnumerable<User> GetAllUsers()
-            {
-                return _userRepository.GetAllUsers();
-            }
-
-            public void AddUser(User user)
-            {
-                _userRepository.AddUser(user);
-            }
-
-            public void UpdateUser(User user)
-            {
-                _userRepository.UpdateUser(user);
-            }
-
-            public void DeleteUser(User user)
-            {
-                _userRepository.DeleteUser(user);
-            }
+        public void UpdateUser(User user)
+        {
+            throw new NotImplementedException();
         }
     }
 }

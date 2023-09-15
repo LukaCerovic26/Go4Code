@@ -4,11 +4,11 @@ using Aplikacija1.Repository;
 
 namespace Aplikacija1.Service
 {
-    public class LikeService
+    public class LikeServiceIMPL : ILikeService
     {
         private readonly ILikeRepository _likeRepository;
 
-        public LikeService(ILikeRepository likeRepository)
+        public LikeServiceIMPL(ILikeRepository likeRepository)
         {
             _likeRepository = likeRepository;
         }

@@ -9,6 +9,7 @@ using System.Text;
 using Aplikacija1.Model;
 using Aplikacija1.Mapping;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Aplikacija1.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -83,6 +84,12 @@ builder.Services.AddAuthentication(options =>
 // 
 builder.Services.AddScoped<IPostRepository, PostRepository>();
 builder.Services.AddScoped<IPostService, PostServiceIMPL>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IUserService, UserServiceIMPL>();
+builder.Services.AddScoped<ICommentRepository, CommentRepository>();
+builder.Services.AddScoped<ICommentService, CommentServiceIMPL>();
+builder.Services.AddScoped<ILikeRepository, LikeRepository>();
+builder.Services.AddScoped<ILikeService, LikeServiceIMPL>();
 
 builder.Services.AddAutoMapper(typeof(MapperConfig));
 

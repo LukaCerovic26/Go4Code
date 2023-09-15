@@ -1,13 +1,14 @@
 ﻿using System;
 using Aplikacija1.Model;
+using Aplikacija1.Repositories;
 
 namespace Aplikacija1.Repository
 {
     public class PostRepository : IPostRepository
     {
-        private readonly ApplicationDbContext _context;
+        private readonly AppDbContext _context;
 
-        public PostRepository(ApplicationDbContext context)
+        public PostRepository(AppDbContext context)
         {
             _context = context;
         }

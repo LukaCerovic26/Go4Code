@@ -1,13 +1,14 @@
 ﻿using System;
 using Aplikacija1.Model;
+using Aplikacija1.Repositories;
 
 namespace Aplikacija1.Repository
 {
     public class LikeRepository : ILikeRepository
     {
-        private readonly ApplicationDbContext _context;
+        private readonly AppDbContext _context;
 
-        public LikeRepository(ApplicationDbContext context)
+        public LikeRepository(AppDbContext context)
         {
             _context = context;
         }
