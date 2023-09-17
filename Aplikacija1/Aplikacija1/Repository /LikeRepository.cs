@@ -1,49 +1,66 @@
 ﻿using System;
 using Aplikacija1.Model;
 using Aplikacija1.Repositories;
+using Aplikacija1.Service;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Hosting;
 
 namespace Aplikacija1.Repository
 {
     public class LikeRepository : ILikeRepository
     {
         private readonly AppDbContext _context;
+        public readonly DbSet<Like> _collection;
 
-        public LikeRepository(AppDbContext context)
+        public LikeRepository(AppDbContext dbContext)
         {
-            _context = context;
+            _context = dbContext;
+            _collection = _context.Likes;
         }
 
-        public Like GetLikeById(int likeId)
+        public async Task<Like> Create(Like like)
         {
-            return _context.Likes.FirstOrDefault(l => l.LikeId == likeId);
+            like.CreatedAt = DateTime.Now;
+
+            await _collection.AddAsync(like);
+            await _context.SaveChangesAsync();
+
+            return like;
         }
 
-        public IEnumerable<Like> GetAllLikes()
+        public async Task<Like> Get(int id)
         {
-            return _context.Likes.ToList();
+            return await _collection.AsNoTracking().FirstOrDefaultAsync(like => like.Id == id);
         }
 
-        public IEnumerable<Like> GetLikesForPost(int postId)
+        public async Task<IEnumerable<Like>> GetAll()
         {
-            return _context.Likes.Where(l => l.PostId == postId).ToList();
+            return await _collection.AsNoTracking().ToListAsync();
         }
 
-        public IEnumerable<Like> GetLikesByUser(int userId)
+        public async Task<IEnumerable<Like>> GetLikesForPost(int postId)
         {
-            return _context.Likes.Where(l => l.UserId == userId).ToList();
+            
+            return await _collection.AsNoTracking().Where(like => like.PostId == postId).ToListAsync();
+
         }
 
-        public void AddLike(Like like)
+        public async Task<IEnumerable<Like>> GetLikesByUser(int userId)
         {
-            _context.Likes.Add(like);
-            _context.SaveChanges();
+            return await _collection.AsNoTracking().Where(like => like.UserId == userId).ToListAsync();
         }
 
-        public void RemoveLike(Like like)
+        public async Task Delete(Like like)
         {
-            _context.Likes.Remove(like);
-            _context.SaveChanges();
+            _collection.Remove(like);
+            await _context.SaveChangesAsync();
         }
+
+        public async Task<int> GetLikesCountForPost(int postId)
+        {
+            return await _collection.AsNoTracking().Where(like => like.PostId == postId).CountAsync();
+        }
+        ///FORMATIRANJE UBACI AKO TREBA 
     }
 }
 

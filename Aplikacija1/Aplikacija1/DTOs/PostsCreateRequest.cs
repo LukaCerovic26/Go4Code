@@ -7,8 +7,9 @@ namespace Aplikacija1.DTOs
 	public class PostsCreateRequest
     {
         [Required]
-        public string? Text { get; set; }
+        public string Text { get; set; }
         [Required]
-        public DateTime? CreatedAt { get; set; }
+        public int UserId { get; set; }
+
     }
 }

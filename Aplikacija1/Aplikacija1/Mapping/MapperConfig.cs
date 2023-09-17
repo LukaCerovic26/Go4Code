@@ -11,6 +11,10 @@ namespace Aplikacija1.Mapping
         {
             CreateMap<Post, PostsCreateRequest>().ReverseMap();
             CreateMap<Post, PostsGetDetailsResponse>().ReverseMap();
+            CreateMap<Comment, CommentsCreateRequest>().ReverseMap();
+            CreateMap<Like, LikesCreateRequest>().ReverseMap();
+            CreateMap<User, LoginUserRequest>().ReverseMap();
+            CreateMap<User, RegisterUserRequest>().ReverseMap();
         }
     }
 }

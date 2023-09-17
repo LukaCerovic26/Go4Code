@@ -8,7 +8,9 @@ namespace Aplikacija1.DTOs
         [Required]
         public string? Text { get; set; }
         [Required]
-        public DateTime? CreatedAt { get; set; }
+        public int UserId { get; set; }
+        [Required]
+        public int PostId { get; set; }
     }
 }
 

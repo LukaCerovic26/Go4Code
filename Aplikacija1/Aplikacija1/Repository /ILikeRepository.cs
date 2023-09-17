@@ -5,12 +5,16 @@ namespace Aplikacija1.Repository
 {
     public interface ILikeRepository
     {
-        Like GetLikeById(int likeId);
-        IEnumerable<Like> GetAllLikes();
-        IEnumerable<Like> GetLikesForPost(int postId);
-        IEnumerable<Like> GetLikesByUser(int userId);
-        void AddLike(Like like);
-        void RemoveLike(Like like);
+
+        public Task<Like> Create(Like like);
+        public Task<Like> Get(int id);
+        public Task <IEnumerable<Like>> GetAll();
+        public Task <IEnumerable<Like>> GetLikesForPost(int postId);
+        public Task <IEnumerable<Like>> GetLikesByUser(int userId);
+        public Task Delete(Like like);
     }
 }
 
+//Like GetLikeById(int likeId);
+//void AddLike(Like like);
+//void RemoveLike(Like like);

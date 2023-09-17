@@ -1,48 +1,61 @@
 ﻿using System;
+using Aplikacija1.DTOs;
 using Aplikacija1.Model;
 using Aplikacija1.Repository;
+using AutoMapper;
+using Microsoft.Extensions.Hosting;
 
 namespace Aplikacija1.Service
 {
     public class LikeServiceIMPL : ILikeService
     {
         private readonly ILikeRepository _likeRepository;
+        private readonly IMapper _mapper;
 
-        public LikeServiceIMPL(ILikeRepository likeRepository)
+        public LikeServiceIMPL(ILikeRepository likeRepository, IMapper mapper)
         {
             _likeRepository = likeRepository;
+            _mapper = mapper;
         }
 
-        // Implementiram  poslovnu logiku
-
-        public Like GetLikeById(int likeId)
+        public async Task<Like> GetLikeById(int likeId)
         {
-            return _likeRepository.GetLikeById(likeId);
+            return await _likeRepository.Get(likeId);
         }
 
-        public IEnumerable<Like> GetAllLikes()
+        public async Task<IEnumerable<Like>> GetAllLikes()
         {
-            return _likeRepository.GetAllLikes();
+            return await _likeRepository.GetAll();
         }
 
-        public IEnumerable<Like> GetLikesForPost(int postId)
+        public async Task<IEnumerable<Like>> GetLikesForPost(int postId)
         {
-            return _likeRepository.GetLikesForPost(postId);
+            return await _likeRepository.GetLikesForPost(postId);
         }
 
-        public IEnumerable<Like> GetLikesByUser(int userId)
+        public async Task<IEnumerable<Like>> GetLikesByUser(int userId)
         {
-            return _likeRepository.GetLikesByUser(userId);
+            return await _likeRepository.GetLikesByUser(userId);
         }
 
-        public void AddLike(Like like)
+        public async Task<Like> CreateLike(LikesCreateRequest request)
         {
-            _likeRepository.AddLike(like);
+            var likeEntity = _mapper.Map<Like>(request);
+            var result = await _likeRepository.Create(likeEntity);
+
+            return _mapper.Map<Like>(result);
         }
 
-        public void RemoveLike(Like like)
+        public async Task<bool> DeleteLike(LikesDeleteRequest request)
         {
-            _likeRepository.RemoveLike(like);
+            var likes = await _likeRepository.GetLikesForPost(request.PostId);
+            var exists = likes.First(like => like.UserId == request.UserId);
+            if (exists == null)
+            {
+                return false;
+            }
+            await _likeRepository.Delete(exists);
+            return true;
         }
     }
 }
