@@ -5,11 +5,10 @@ namespace Aplikacija1.Repository
 {
     public interface IPostRepository
     {
-        Post GetPostById(int postId);
-        IEnumerable<Post> GetAllPosts();
-        void AddPost(Post post);
-        void UpdatePost(Post post);
-        void DeletePost(Post post);
+        public Task<Post> Create(Post post);
+        public Task<IEnumerable<Post>> GetAll();
+        public Task<Post> Get(int id);
+        public Task Delete(Post post);
     }
 
 }

@@ -1,7 +1,9 @@
 ﻿using System;
-namespace Aplikacija1.Model
+using Aplikacija1.Model;
+
+namespace Aplikacija1.DTOs
 {
-    public class Comment
+	public class CommentsGetDetailsResponse
     {
         public int Id { get; set; }
         public string Text { get; set; }
@@ -10,4 +12,5 @@ namespace Aplikacija1.Model
         public Post Post { get; set; }
     }
 }
+
 

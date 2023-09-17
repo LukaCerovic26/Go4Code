@@ -1,15 +1,17 @@
 ﻿using System;
+using Aplikacija1.DTOs;
 using Aplikacija1.Model;
 
 namespace Aplikacija1.Service
 {
     public interface IPostService
+
     {
-        Post GetPostById(int postId);
-        IEnumerable<Post> GetAllPosts();
-        void AddPost(Post post);
-        void UpdatePost(Post post);
-        void DeletePost(Post post);
+        public Task<PostsGetDetailsResponse> CreateAsync(PostsCreateRequest post);
+        public Task<IEnumerable<PostsGetDetailsResponse>> GetAsync();
+        public Task<PostsGetDetailsResponse> GetDetailsAsync(int id);
+        public Task<bool> DeleteAsync(int id);
+
     }
 }
 

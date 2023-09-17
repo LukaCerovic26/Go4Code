@@ -5,11 +5,10 @@ namespace Aplikacija1.Repository
 {
 	public interface ICommentRepository
 	{
-		Comment GetCommentById(int commentid);
-		IEnumerable<Comment> GetAllComments();
-		void AddComment(Comment comment);
-		void UpdateComment(Comment comment);
-		void DeleteComment(Comment comment);
+		public Task<Comment> Create(Comment comment);
+		public Task<IEnumerable<Comment>> GetAll();
+		public Task<Comment> Get(int id);
+		public Task Delete(Comment comment);
 	}
 }
 

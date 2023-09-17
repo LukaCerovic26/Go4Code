@@ -1,12 +1,15 @@
 ﻿using System;
+using Aplikacija1.DTOs;
 using Aplikacija1.Model;
 using Aplikacija1.Service;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Aplikacija1.Controllers
 {
-    [Route("api/[controller]")]
+
     [ApiController]
+    [Route("api/[controller]")]
     public class PostController : ControllerBase
     {
         private readonly IPostService _postService;
@@ -16,10 +19,18 @@ namespace Aplikacija1.Controllers
             _postService = postService;
         }
 
-        [HttpGet("{postId}")]
-        public ActionResult<Post> GetPostById(int postId)
+        [Authorize(Roles = Roles.User)]
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<PostsGetDetailsResponse>>> Get([FromQuery] string search)
         {
-            var post = _postService.GetPostById(postId);
+            var result = await _postService.GetAsync();
+            return Ok(result);
+        }
+
+        [HttpGet("{Id}")]
+        public ActionResult<Post> GetPostById(int id)
+        {
+            var post = _postService.GetDetailsAsync(id);
             if (post == null)
             {
                 return NotFound();
@@ -27,7 +38,32 @@ namespace Aplikacija1.Controllers
             return Ok(post);
         }
 
-        // OSTALE AKCIJE (GetAllPosts, AddPost, UpdatePost, DeletePost)
+        [Authorize(Roles = Roles.User)]
+        [HttpGet("Details/{id}")]
+        public async Task<ActionResult<PostsGetDetailsResponse>> GetDetails(int id)
+        {
+            var result = await _postService.GetDetailsAsync(id);
+
+            return result is null ? NotFound() : Ok(result);
+        }
+
+        [Authorize(Roles = Roles.Admin)]
+        [HttpPost]
+        public async Task<ActionResult<PostsGetDetailsResponse>> Post(PostsCreateRequest post)
+        {
+            var result = await _postService.CreateAsync(post);
+
+            return CreatedAtAction(nameof(GetDetails), new { id = result.Id }, result);
+        }
+
+        [Authorize(Roles = Roles.Admin)]
+        [HttpDelete]
+        public async Task<ActionResult> Delete(int id)
+        {
+            var result = await _postService.DeleteAsync(id);
+
+            return result == false ? NotFound() : NoContent();
+        }
     }
 }
 

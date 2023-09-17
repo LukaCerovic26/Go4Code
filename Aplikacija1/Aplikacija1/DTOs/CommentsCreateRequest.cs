@@ -1,10 +1,9 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-using Aplikacija1.Model;
 
 namespace Aplikacija1.DTOs
 {
-	public class PostsCreateRequest
+	public class CommentsCreateRequest
     {
         [Required]
         public string? Text { get; set; }
@@ -12,3 +11,4 @@ namespace Aplikacija1.DTOs
         public DateTime? CreatedAt { get; set; }
     }
 }
+

@@ -1,15 +1,16 @@
 ﻿using System;
+using Aplikacija1.DTOs;
 using Aplikacija1.Model;
 
 namespace Aplikacija1.Service
 {
     public interface ICommentService
     {
-        Comment GetCommentById(int commentId);
-        IEnumerable<Comment> GetAllComments();
-        void AddComment(Comment comment);
-        void UpdateComment(Comment comment);
-        void DeleteComment(Comment comment);
+        public Task<CommentsGetDetailsResponse> CreateAsync(CommentsCreateRequest post);
+        public Task<IEnumerable<CommentsGetDetailsResponse>> GetAsync();
+        public Task<CommentsGetDetailsResponse> GetDetailsAsync(int id);
+        public Task<bool> DeleteAsync(int id);
+
     }
 }
 

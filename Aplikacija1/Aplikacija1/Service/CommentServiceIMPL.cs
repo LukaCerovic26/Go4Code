@@ -1,43 +1,58 @@
 ﻿using System;
+using Aplikacija1.DTOs;
 using Aplikacija1.Model;
 using Aplikacija1.Repository;
+using AutoMapper;
 
 namespace Aplikacija1.Service
+
 {
     public class CommentServiceIMPL : ICommentService
     {
         private readonly ICommentRepository _commentRepository;
+        private readonly IMapper _mapper;
 
-        public CommentServiceIMPL(ICommentRepository commentRepository)
+        public CommentServiceIMPL(ICommentRepository commentRepository, IMapper mapper)
         {
             _commentRepository = commentRepository;
+            _mapper = mapper;
         }
 
-        // POSOVNA LOGIKA
-
-        public Comment GetCommentById(int commentId)
+        public async Task<CommentsGetDetailsResponse> CreateAsync(CommentsCreateRequest comment)
         {
-            return _commentRepository.GetCommentById(commentId);
+            var commentEntity = _mapper.Map<Comment>(comment);
+            var result = await _commentRepository.Create(commentEntity);
+
+            return _mapper.Map<CommentsGetDetailsResponse>(result);
+            
         }
 
-        public IEnumerable<Comment> GetAllComments()
+       public async Task<bool> DeleteAsync(int id)
         {
-            return _commentRepository.GetAllComments();
+            var exists = await _commentRepository.Get(id);
+            if (exists == null)
+            {
+                return false;
+            }
+            await _commentRepository.Delete(exists);
+            return true;
+
         }
 
-        public void AddComment(Comment comment)
+        public async Task<IEnumerable<CommentsGetDetailsResponse>> GetAsync()
         {
-            _commentRepository.AddComment(comment);
+            var comments = await _commentRepository.GetAll();
+            return _mapper.Map<IEnumerable<CommentsGetDetailsResponse>>(comments);
         }
 
-        public void UpdateComment(Comment comment)
+        public async Task<CommentsGetDetailsResponse> GetDetailsAsync(int id)
         {
-            _commentRepository.UpdateComment(comment);
-        }
+            var comment = await _commentRepository.Get(id);
+            if (comment == null)
+                return null;
 
-        public void DeleteComment(Comment comment)
-        {
-            _commentRepository.DeleteComment(comment);
+            return _mapper.Map<CommentsGetDetailsResponse>(comment);
+
         }
     }
 }

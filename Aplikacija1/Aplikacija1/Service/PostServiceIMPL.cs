@@ -1,4 +1,5 @@
 ﻿using System;
+using Aplikacija1.DTOs;
 using Aplikacija1.Model;
 using Aplikacija1.Repository;
 using AutoMapper;
@@ -11,34 +12,47 @@ namespace Aplikacija1.Service
         private readonly IPostRepository _postRepository;
         private readonly IMapper _mapper;
 
-        public PostServiceIMPL(IPostRepository postRepository)
+        public PostServiceIMPL(IPostRepository repository, IMapper mapper)
         {
-            _postRepository = postRepository;
+            _postRepository = repository;
+            _mapper = mapper;
         }
 
-        public IEnumerable<Post> GetAllPosts()
+        public async Task<PostsGetDetailsResponse> CreateAsync(PostsCreateRequest post)
         {
-            return _postRepository.GetAllPosts();
+            var postEntity = _mapper.Map<Post>(post);
+            var result = await _postRepository.Create(postEntity);
+
+            return _mapper.Map<PostsGetDetailsResponse>(result);
+           
         }
 
-        public Post GetPostById(int postId)
+        public async Task<bool> DeleteAsync(int id)
         {
-            return _postRepository.GetPostById(postId);
+            var exists = await _postRepository.Get(id);
+            if(exists == null)
+            {
+                return false;
+            }
+            await _postRepository.Delete(exists);
+            return true;
+            
         }
 
-        public void AddPost(Post post)
+        public async Task<IEnumerable<PostsGetDetailsResponse>> GetAsync()
         {
-            _postRepository.AddPost(post);
+            var posts = await _postRepository.GetAll();
+            return _mapper.Map<IEnumerable<PostsGetDetailsResponse>>(posts);
         }
 
-        public void UpdatePost(Post post)
+        public async Task<PostsGetDetailsResponse> GetDetailsAsync(int id)
         {
-            _postRepository.UpdatePost(post);
-        }
+            var post = await _postRepository.Get(id);
+            if (post == null)
+                return null;
 
-        public void DeletePost(Post post)
-        {
-            _postRepository.DeletePost(post);
+            return _mapper.Map<PostsGetDetailsResponse>(post);
+            
         }
     }
 }

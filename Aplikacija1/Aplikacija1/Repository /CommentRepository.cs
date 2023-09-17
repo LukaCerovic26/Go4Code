@@ -1,44 +1,48 @@
 ﻿using System;
 using Aplikacija1.Model;
 using Aplikacija1.Repositories;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Hosting;
 
 namespace Aplikacija1.Repository
 {
+
     public class CommentRepository : ICommentRepository
     {
         private readonly AppDbContext _context;
-
-        public CommentRepository(AppDbContext context)
+        private readonly DbSet<Comment> _collection;
+    
+        public CommentRepository(AppDbContext dbContext)
         {
-            _context = context;
+            _context = dbContext;
+            _collection = _context.Comments;
         }
 
-        public Comment GetCommentById(int commentId)
+        public async Task<Comment> Create(Comment comment)
         {
-            return _context.Comments.FirstOrDefault(c => c.CommentId == commentId);
+            comment.CreatedAt = DateTime.Now;
+
+            await _collection.AddAsync(comment);
+            await _context.SaveChangesAsync();
+
+            return comment;
         }
 
-        public IEnumerable<Comment> GetAllComments()
+        public async Task<Comment> Get(int id)
         {
-            return _context.Comments.ToList();
+            return await _collection.AsNoTracking().FirstOrDefaultAsync(post => post.Id == id);
         }
 
-        public void AddComment(Comment comment)
+        public async Task<IEnumerable<Comment>> GetAll()
         {
-            _context.Comments.Add(comment);
-            _context.SaveChanges();
+            return await _collection.AsNoTracking().ToListAsync();
         }
 
-        public void UpdateComment(Comment comment)
-        {
-            _context.Comments.Update(comment);
-            _context.SaveChanges();
-        }
 
-        public void DeleteComment(Comment comment)
+        public async Task Delete(Comment comment)
         {
-            _context.Comments.Remove(comment);
-            _context.SaveChanges();
+            _collection.Remove(comment);
+            await _context.SaveChangesAsync();
         }
     }
 }
