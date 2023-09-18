@@ -47,6 +47,15 @@ public class Startup
         // Servis za Like model
         services.AddScoped<LikeServiceIMPL, LikeServiceIMPL>();
         services.AddScoped<ILikeRepository, LikeRepository>();
+
+        // Servis za Follow model
+        services.AddScoped<IFollowService, FollowServiceIMPL>();
+        services.AddScoped<IFollowRepository, FollowRepository>();
+
+        // Servis za Notification model
+        services.AddScoped<INotificationService, NotificationServiceIMPL>();
+        services.AddScoped<INotificationRepository, NotificationRepository>();
+
     }
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

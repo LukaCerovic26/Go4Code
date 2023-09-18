@@ -14,7 +14,3 @@ namespace Aplikacija1.Repository
         public Task Delete(Like like);
     }
 }
-
-//Like GetLikeById(int likeId);
-//void AddLike(Like like);
-//void RemoveLike(Like like);

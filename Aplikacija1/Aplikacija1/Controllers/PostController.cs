@@ -47,7 +47,7 @@ namespace Aplikacija1.Controllers
             return result is null ? NotFound() : Ok(result);
         }
 
-        [Authorize(Roles = Roles.Admin)]
+        [Authorize(Roles = Roles.User)]
         [HttpPost]
         public async Task<ActionResult<PostsGetDetailsResponse>> Post(PostsCreateRequest post)
         {
@@ -56,7 +56,7 @@ namespace Aplikacija1.Controllers
             return CreatedAtAction(nameof(GetDetails), new { id = result.Id }, result);
         }
 
-        [Authorize(Roles = Roles.Admin)]
+        [Authorize(Roles = Roles.User)]
         [HttpDelete]
         public async Task<ActionResult> Delete(int id)
         {
