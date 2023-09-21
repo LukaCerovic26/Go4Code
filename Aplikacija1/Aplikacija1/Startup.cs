@@ -1,4 +1,5 @@
 ﻿using System.Text;
+using Aplikacija1.Repositories;
 using Aplikacija1.Repository;
 using Aplikacija1.Service;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -18,6 +19,7 @@ public class Startup
         {
             x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
             x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+    
         })
         .AddJwtBearer(x =>
         {
@@ -32,6 +34,7 @@ public class Startup
             };
         });
 
+        //services.AddDbContext<AppDbContext>();
         // Servis za User model
         services.AddScoped<UserServiceIMPL, UserServiceIMPL>();
         services.AddScoped<IUserRepository, UserRepository>();

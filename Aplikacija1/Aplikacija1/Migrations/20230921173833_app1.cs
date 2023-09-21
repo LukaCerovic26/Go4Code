@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Aplikacija1.Migrations
 {
     /// <inheritdoc />
-    public partial class initial : Migration
+    public partial class app1 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

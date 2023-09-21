@@ -96,7 +96,6 @@ builder.Services.AddScoped<INotificationRepository, NotificationRepository>();
 builder.Services.AddScoped<INotificationService, NotificationServiceIMPL>();
 
 builder.Services.AddAutoMapper(typeof(MapperConfig));
-
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

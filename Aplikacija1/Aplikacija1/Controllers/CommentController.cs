@@ -18,7 +18,7 @@ namespace Aplikacija1.Controllers
             _commentService = commentService;
         }
 
-        [Authorize(Roles.User)]
+        //[Authorize(Roles.User)]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<CommentsGetDetailsResponse>>> Get([FromQuery] string search)
         {

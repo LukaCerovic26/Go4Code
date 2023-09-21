@@ -19,7 +19,8 @@ namespace Aplikacija1.Repositories
 
         //public DbSet<Follow> Follows { get; set; }
 
-
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
+
     }
+
 }
