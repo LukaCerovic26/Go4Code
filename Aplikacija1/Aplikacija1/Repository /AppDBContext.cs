@@ -17,7 +17,7 @@ namespace Aplikacija1.Repositories
 
         public DbSet<Notification> Notifications { get; set; }
 
-        public DbSet<Follow> Follows { get; set; }
+        //public DbSet<Follow> Follows { get; set; }
 
 
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }

@@ -1,26 +1,41 @@
 ﻿<Properties StartupConfiguration="{C1D7945F-5A12-46F3-93C1-D75B3168276A}|Default">
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.Aplikacija1 PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Aplikacija1 PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" FirstBuild="True" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Aplikacija1/Controllers/CommentController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Aplikacija1/Properties/launchSettings.json">
     <Files>
-      <File FileName="Aplikacija1/Controllers/CommentController.cs" Line="13" Column="6" />
-      <File FileName="Aplikacija1/Controllers/LikeController.cs" Line="39" Column="65" NotebookId="1" />
+      <File FileName="Aplikacija1/Controllers/PostController.cs" />
+      <File FileName="Aplikacija1/Model/Post.cs" />
+      <File FileName="Aplikacija1/DTOs/PostsCreateRequest.cs" />
+      <File FileName="Aplikacija1/DTOs/PostsGetDetailsResponse.cs" />
+      <File FileName="Aplikacija1/Service/IPostService.cs" />
+      <File FileName="Aplikacija1/DTOs/RegisterUserRequest.cs" />
+      <File FileName="Aplikacija1/DTOs/LoginUserRequest.cs" />
+      <File FileName="Aplikacija1/Controllers/AuthController.cs" />
+      <File FileName="Aplikacija1/Program.cs" />
+      <File FileName="Aplikacija1/Startup.cs" />
+      <File FileName="Aplikacija1/WeatherForecast.cs" />
+      <File FileName="Aplikacija1/appsettings.Development.json" />
+      <File FileName="Aplikacija1/Properties/launchSettings.json" Line="31" Column="2" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Aplikacija1" expanded="True">
-            <Node name="Aplikacija1" expanded="True">
+            <Node name="Aplikacija1">
+              <Node name="Dependencies" expanded="True">
+                <Node name="PackageDependencies" expanded="True" />
+              </Node>
               <Node name="Controllers" expanded="True" />
+              <Node name="appsettings.json" expanded="True" />
             </Node>
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
 </Properties>

@@ -103,3 +103,8 @@
 /Users/lukacerovic/Desktop/Go4Code/Go4Code/Aplikacija1/Aplikacija1/bin/Debug/net6.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 /Users/lukacerovic/Desktop/Go4Code/Go4Code/Aplikacija1/Aplikacija1/bin/Debug/net6.0/TourmalineCore.AspNetCore.JwtAuthentication.Core.dll
 /Users/lukacerovic/Desktop/Go4Code/Go4Code/Aplikacija1/Aplikacija1/bin/Debug/net6.0/TourmalineCore.AspNetCore.JwtAuthentication.Identity.dll
+/Users/lukacerovic/Desktop/Go4Code/Go4Code/Aplikacija1/Aplikacija1/bin/Debug/net6.0/Humanizer.dll
+/Users/lukacerovic/Desktop/Go4Code/Go4Code/Aplikacija1/Aplikacija1/bin/Debug/net6.0/Microsoft.EntityFrameworkCore.Design.dll
+/Users/lukacerovic/Desktop/Go4Code/Go4Code/Aplikacija1/Aplikacija1/bin/Debug/net6.0/Microsoft.Extensions.DependencyModel.dll
+/Users/lukacerovic/Desktop/Go4Code/Go4Code/Aplikacija1/Aplikacija1/bin/Debug/net6.0/Mono.TextTemplating.dll
+/Users/lukacerovic/Desktop/Go4Code/Go4Code/Aplikacija1/Aplikacija1/bin/Debug/net6.0/System.CodeDom.dll
