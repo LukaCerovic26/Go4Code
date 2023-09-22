@@ -1,3 +1,21 @@
-<div *ngFor="let post of sviPostovi">
-    <p>{{post.Id}} {{post.Text}}</p>
-</div>
+<div>
+    <div *ngIf="isLoading">
+      <mat-spinner></mat-spinner>
+    </div>
+      <button mat-flat-button  color="primary" (click)="getAllPosts()"> Load posts</button>
+      <div *ngIf="posts.length > 0">
+          <h2>All posts</h2>
+          <div *ngFor="let post of posts">
+            <h2>Title: {{post.Title}}</h2>
+            <h3>Author: {{post.Author}}</h3>
+            <p> Text: {{post.Text}}</p>
+          </div>
+        </div>
+      
+      
+      
+        <div *ngIf="!isLoading && posts.length < 1">
+          <h2>No posts to show</h2>
+          </div>
+  </div>
+  

@@ -75,7 +75,7 @@ namespace Aplikacija1.Controllers
 
             var result = await _userManager.CreateAsync(user, model.Password);
             if (!result.Succeeded)
-                return StatusCode(504);
+                return StatusCode(StatusCodes.Status500InternalServerError);
 
             if (!await _roleManager.RoleExistsAsync(Roles.User))
                 await _roleManager.CreateAsync(new IdentityRole(Roles.User));

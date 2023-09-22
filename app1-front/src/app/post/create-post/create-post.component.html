@@ -1,1 +1,35 @@
-<p>create-post works!</p>
+<div>
+    <form #createPostForm="ngForm" (ngSubmit)="onSubmit()" class="fromDiv">
+        <h1>Create a post:</h1>
+
+
+        <mat-form-field>
+            <mat-label>Author</mat-label>
+            <input matInput required type="text" name="author" [(ngModel)]="post.Author" ngModel>
+          </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Title</mat-label>
+            <input matInput required type="text" name="title" [(ngModel)]="post.Title" ngModel>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Text</mat-label>
+            <input matInput required type="text" name="text" [(ngModel)]="post.Text" ngModel>
+          </mat-form-field>
+
+          <button [disabled]="createPostForm.invalid" type="submit" mat-raised-button color="primary">Create</button>
+    </form>
+    <br>
+    <mat-divider></mat-divider>
+    <div>
+        <button mat-raised-button (click)="deleteById()" color="accent"> Delete post</button>
+        <mat-form-field>
+          <mat-label>Id to delete</mat-label>
+          <input matInput [(ngModel)]="idToDelete" required type="text">
+        </mat-form-field>
+    </div>
+</div>
+
+<!-- NAMESTIIIII -->
+<!-- <app-post-preview [updatePosts]="updatePosts"></app-post-preview> -->

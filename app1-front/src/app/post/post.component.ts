@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { PostModel } from './post.model';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Post } from './post.model';
 import { PostServiceService } from './post-service.service';
 
 @Component({
@@ -7,19 +7,30 @@ import { PostServiceService } from './post-service.service';
   templateUrl: './post.component.html',
   styleUrls: ['./post.component.scss']
 })
-export class PostComponent {
-  /**
-   *
-   */
-  sviPostovi: any;
+export class PostComponent implements OnChanges {
 
-  constructor(postService: PostServiceService) {
-    this.sviPostovi = postService.getAll()
+  @Input() updatePosts = false;
+
+  ngOnChanges() {
+    console.log('On changes called.')
+    this.getAllPosts();
   }
+  constructor(private postService: PostServiceService) {
 
-  svi() {
-    //   console.log(th)
   }
+  isLoading = false;
 
+  posts: Post[] = [];
+
+  getAllPosts() {
+    this.isLoading = true;
+    setTimeout(() => {
+      this.postService.getAll().subscribe((responseData: Post[]) => {
+        console.log(responseData);
+        this.posts = responseData;
+        this.isLoading = false;
+      });
+    }, 1000)
+  }
 
 }

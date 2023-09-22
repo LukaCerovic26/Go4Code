@@ -1,15 +1,33 @@
 import { Injectable } from '@angular/core';
-import { PostModel } from './post.model';
+import { Post } from './post.model';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { AuthService } from '../auth/auth.service';
+import { Observable, take } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class PostServiceService {
 
-  posts: PostModel[] = [{ Id: "1", Text: "aaa" }, { Id: "2", Text: "ddd" }];
+  // IZMENI
+  readonly url = 'http://localhost:5143/api/Posts';
 
-  getAll() {
-    return this.posts
+  constructor(private http: HttpClient, private authService: AuthService) { }
+
+  createPost(post: Post) {
+    return this.http.post<Post>(this.url, post)
   }
-  constructor() { }
+
+  deletePostById(Id: string) {
+    return this.http.delete(this.url, {
+      params: new HttpParams().set("id", Id),
+      headers: new HttpHeaders({ "nazivheader-a": "vrednost", "header 2": "vrednost" })
+
+    })
+  }
+
+  getAll(): Observable<Post[]> {
+    return this.http.get<Post[]>(this.url);
+  }
 }
