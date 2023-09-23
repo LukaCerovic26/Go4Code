@@ -13,7 +13,7 @@ export interface AuthResponse {
   providedIn: 'root'
 })
 export class AuthService {
-  rootUrl: string = 'http://localhost:5143/api/Auth/';
+  rootUrl: string = 'http://localhost:7270/api/Auth/';
   user: BehaviorSubject<User | null> = new BehaviorSubject<User | null>(null);
 
   constructor(private http: HttpClient, private router: Router) { }

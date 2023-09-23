@@ -32,6 +32,7 @@ export class AuthComponent {
         }
       })
     } else {
+      console.log(user, email, password)
       // register ovde
       this.authService.register({ username: user, email: email, password: password }).subscribe({
         next: () => {
