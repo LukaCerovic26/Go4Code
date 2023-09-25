@@ -1,6 +1,7 @@
 ﻿using System;
 using Aplikacija1.Model;
 using Aplikacija1.Service;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Aplikacija1.Controllers
@@ -11,16 +12,18 @@ namespace Aplikacija1.Controllers
     public class UserController : ControllerBase
     {
         private readonly IUserService _userService;
+        private readonly UserManager<IdentityUser> _userManager;
 
-        public UserController(IUserService userService)
+        public UserController(IUserService userService, UserManager<IdentityUser> userManager)
         {
             _userService = userService;
+            _userManager = userManager;
         }
 
-        [HttpGet("{userId}")]
-        public ActionResult<User> GetUserById(int userId)
+        [HttpGet("{Id}")]
+        public async Task<IActionResult> GetUserById(String Id)
         {
-            var user = _userService.GetUserById(userId);
+            var user = await _userManager.FindByIdAsync(Id);
             if (user == null)
             {
                 return NotFound();

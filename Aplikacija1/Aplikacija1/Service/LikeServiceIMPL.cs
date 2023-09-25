@@ -33,7 +33,7 @@ namespace Aplikacija1.Service
             return await _likeRepository.GetLikesForPost(postId);
         }
 
-        public async Task<IEnumerable<Like>> GetLikesByUser(int userId)
+        public async Task<IEnumerable<Like>> GetLikesByUser(String userId)
         {
             return await _likeRepository.GetLikesByUser(userId);
         }

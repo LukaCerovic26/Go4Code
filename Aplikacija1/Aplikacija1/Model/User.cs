@@ -1,14 +1,14 @@
 ﻿using System;
+using Microsoft.AspNetCore.Identity;
+
 namespace Aplikacija1.Model
 {
-	public class User
+    public class User : IdentityUser
     {
-		
-        public int UserId { get; set; }
-        public string UserName { get; set; }
-        public ICollection<Post> Posts { get; set; }
-        public ICollection<User> FollowedUsers { get; set; }
+
     }
 }
+
+
 
 

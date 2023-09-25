@@ -10,7 +10,7 @@ namespace Aplikacija1.Repository
         public Task<Like> Get(int id);
         public Task <IEnumerable<Like>> GetAll();
         public Task <IEnumerable<Like>> GetLikesForPost(int postId);
-        public Task <IEnumerable<Like>> GetLikesByUser(int userId);
+        public Task <IEnumerable<Like>> GetLikesByUser(String userId);
         public Task Delete(Like like);
     }
 }

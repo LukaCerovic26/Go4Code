@@ -9,7 +9,7 @@ namespace Aplikacija1.DTOs
         [Required]
         public string Text { get; set; }
         [Required]
-        public int UserId { get; set; }
+        public String UserId { get; set; }
 
     }
 }

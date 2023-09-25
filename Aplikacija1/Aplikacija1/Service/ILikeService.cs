@@ -9,7 +9,7 @@ namespace Aplikacija1.Service
        public Task <Like> GetLikeById(int likeId);
        public Task <IEnumerable<Like>> GetAllLikes();
        public Task <IEnumerable<Like>> GetLikesForPost(int postId);
-       public Task <IEnumerable<Like>> GetLikesByUser(int userId);
+       public Task <IEnumerable<Like>> GetLikesByUser(String userId);
        public Task <Like> CreateLike(LikesCreateRequest request);
        public Task <bool> DeleteLike(LikesDeleteRequest request);
     }

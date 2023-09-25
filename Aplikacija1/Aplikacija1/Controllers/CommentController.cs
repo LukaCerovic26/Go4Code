@@ -38,7 +38,7 @@ namespace Aplikacija1.Controllers
             return Ok(comment);
         }
 
-        [Authorize(Roles = Roles.User)]
+        //[Authorize(Roles = Roles.User)]
         [HttpGet("Details/{id}")]
         public async Task<ActionResult<CommentsGetDetailsResponse>> GetDetails(int id)
         {
@@ -47,7 +47,7 @@ namespace Aplikacija1.Controllers
             return result is null ? NotFound() : Ok(result);
         }
 
-        [Authorize(Roles = Roles.User)]
+        //[Authorize(Roles = Roles.User)]
         [HttpPost]
         public async Task<ActionResult<CommentsGetDetailsResponse>> Post(CommentsCreateRequest comment)
         {
@@ -55,7 +55,7 @@ namespace Aplikacija1.Controllers
             return CreatedAtAction(nameof(GetDetails), new { id = result.Id }, result);
         }
 
-        [Authorize(Roles = Roles.User)]
+        //[Authorize(Roles = Roles.User)]
         [HttpDelete]
         public async Task<ActionResult> Delete(int id)
         {

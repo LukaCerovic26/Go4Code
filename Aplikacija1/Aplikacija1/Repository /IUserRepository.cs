@@ -5,7 +5,7 @@ namespace Aplikacija1.Repository
 {
     public interface IUserRepository
     {
-        User GetUserById(int userId);
+        public Task<User> GetUserById(String Id);
         IEnumerable<User> GetAllUsers();
         User AddUser(User user);
         void UpdateUser(User user);

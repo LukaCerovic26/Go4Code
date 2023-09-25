@@ -45,7 +45,7 @@ namespace Aplikacija1.Repository
 
         }
 
-        public async Task<IEnumerable<Like>> GetLikesByUser(int userId)
+        public async Task<IEnumerable<Like>> GetLikesByUser(String userId)
         {
             return await _collection.AsNoTracking().Where(like => like.UserId == userId).ToListAsync();
         }

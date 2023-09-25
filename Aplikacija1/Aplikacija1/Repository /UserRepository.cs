@@ -13,9 +13,9 @@ namespace Aplikacija1.Repository
             _context = context;
         }
 
-        public User GetUserById(int userId)
+        public async Task<User> GetUserById(String Id)
         {
-            return _context.Users.FirstOrDefault(u => u.UserId == userId);
+            return _context.Users.FirstOrDefault(u => u.Id == Id);
         }
 
         public IEnumerable<User> GetAllUsers()

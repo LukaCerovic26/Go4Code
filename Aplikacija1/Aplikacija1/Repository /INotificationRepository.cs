@@ -10,7 +10,7 @@ namespace Aplikacija1.Repository
 		public Task<IEnumerable<Notification>> GetAll();
 		public Task Delete(Notification notification);
         public Task<IEnumerable<Notification>> GetNotificationsForPost(int postId);
-        public Task<IEnumerable<Notification>> GetNotificationsByUser(int userId);
+        public Task<IEnumerable<Notification>> GetNotificationsByUser(String userId);
 
     }
 }

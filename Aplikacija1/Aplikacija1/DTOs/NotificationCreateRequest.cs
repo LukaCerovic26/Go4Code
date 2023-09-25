@@ -6,7 +6,7 @@ namespace Aplikacija1.DTOs
 	public class NotificationCreateRequest
 	{
 		[Required]
-		public int UserId { get; set; }
+		public String UserId { get; set; }
 
 		[Required]
 		public int PostId { get; set; }
@@ -14,7 +14,7 @@ namespace Aplikacija1.DTOs
     public class NotificationDeleteRequest
     {
         [Required]
-        public int UserId { get; set; }
+        public String UserId { get; set; }
         [Required]
         public int PostId { get; set; }
     }

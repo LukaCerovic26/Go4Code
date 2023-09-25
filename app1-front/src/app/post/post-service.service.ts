@@ -11,7 +11,7 @@ import { Observable, take } from 'rxjs';
 export class PostServiceService {
 
   // IZMENI
-  readonly url = 'http://localhost:5143/api/Posts';
+  readonly url = 'http://localhost:7270/api/Post';
 
   constructor(private http: HttpClient, private authService: AuthService) { }
 

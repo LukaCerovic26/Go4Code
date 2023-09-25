@@ -47,7 +47,7 @@ namespace Aplikacija1.Repository
             return await _collection.AsNoTracking().Where(notification => notification.PostId == postId).ToListAsync();
         }
 
-        public async Task<IEnumerable<Notification>> GetNotificationsByUser(int userId)
+        public async Task<IEnumerable<Notification>> GetNotificationsByUser(String userId)
         {
             return await _collection.AsNoTracking().Where(notification => notification.UserId == userId).ToListAsync();
         }

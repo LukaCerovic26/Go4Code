@@ -8,7 +8,7 @@ namespace Aplikacija1.DTOs
     {
 
         [Required]
-        public int UserId { get; set; }
+        public String UserId { get; set; }
         [Required]
         public int PostId { get; set; }
 
@@ -16,7 +16,7 @@ namespace Aplikacija1.DTOs
     public class LikesDeleteRequest
     {
         [Required]
-        public int UserId { get; set; }
+        public String UserId { get; set; }
         [Required]
         public int PostId { get; set; }
     }

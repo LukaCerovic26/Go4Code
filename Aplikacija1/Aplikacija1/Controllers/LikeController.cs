@@ -30,9 +30,9 @@ namespace Aplikacija1.Controllers
                 return Ok(like);
             }
 
-            [Authorize(Roles = Roles.User)]
+            //[Authorize(Roles = Roles.User)]
             [HttpGet("LikesByUser/{id}")]
-            public async Task<ActionResult<IEnumerable<Like>>> GetLikesByUser(int id)
+            public async Task<ActionResult<IEnumerable<Like>>> GetLikesByUser(String id)
             {
                 var result = await _likeService.GetLikesByUser(id);
 
@@ -48,7 +48,7 @@ namespace Aplikacija1.Controllers
                 return result is null ? NotFound() : Ok(result);
             }
 
-            [Authorize(Roles = Roles.User)]
+            //[Authorize(Roles = Roles.User)]
             [HttpPost]
             public async Task<ActionResult<Like>> Post(LikesCreateRequest like)
             {
@@ -56,7 +56,7 @@ namespace Aplikacija1.Controllers
             return result;
             }
 
-            [Authorize(Roles = Roles.User)]
+            //[Authorize(Roles = Roles.User)]
             [HttpDelete]
             public async Task<ActionResult> Delete(LikesDeleteRequest request)
             {

@@ -11,11 +11,13 @@ namespace Aplikacija1.Service
     {
         private readonly IPostRepository _postRepository;
         private readonly IMapper _mapper;
+        private readonly ILikeRepository _likesRepository;
 
-        public PostServiceIMPL(IPostRepository repository, IMapper mapper)
+        public PostServiceIMPL(IPostRepository repository, IMapper mapper, ILikeRepository likesRepository)
         {
             _postRepository = repository;
             _mapper = mapper;
+            _likesRepository = likesRepository;
         }
 
         public async Task<PostsGetDetailsResponse> CreateAsync(PostsCreateRequest post)
@@ -48,6 +50,8 @@ namespace Aplikacija1.Service
         public async Task<PostsGetDetailsResponse> GetDetailsAsync(int id)
         {
             var post = await _postRepository.Get(id);
+            var likes = await _likesRepository.GetLikesForPost(post.Id);
+            post.Likes = likes.ToList();
             if (post == null)
                 return null;
 

@@ -7,7 +7,10 @@ namespace Aplikacija1.Model
         public string Text { get; set; }
         public DateTime CreatedAt { get; set; }
         public int PostId { get; set; }
-        public Post Post { get; set; }
+        public String UserId {get; set;}
+
+        //SAMO U COMMENT RESPONSE VIDI I ZA PRISTUP TOKENU 
+        public String UserName { get; set; }
     }
 }
 

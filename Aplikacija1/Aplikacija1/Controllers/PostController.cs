@@ -19,7 +19,7 @@ namespace Aplikacija1.Controllers
             _postService = postService;
         }
 
-        [Authorize(Roles = Roles.User)]
+        //[Authorize(Roles = Roles.User)]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<PostsGetDetailsResponse>>> Get([FromQuery] string search)
         {
@@ -27,18 +27,7 @@ namespace Aplikacija1.Controllers
             return Ok(result);
         }
 
-        [HttpGet("{Id}")]
-        public ActionResult<Post> GetPostById(int id)
-        {
-            var post = _postService.GetDetailsAsync(id);
-            if (post == null)
-            {
-                return NotFound();
-            }
-            return Ok(post);
-        }
-
-        [Authorize(Roles = Roles.User)]
+        //[Authorize(Roles = Roles.User)]
         [HttpGet("Details/{id}")]
         public async Task<ActionResult<PostsGetDetailsResponse>> GetDetails(int id)
         {
@@ -47,7 +36,7 @@ namespace Aplikacija1.Controllers
             return result is null ? NotFound() : Ok(result);
         }
 
-        [Authorize(Roles = Roles.User)]
+        //[Authorize(Roles = Roles.User)]
         [HttpPost]
         public async Task<ActionResult<PostsGetDetailsResponse>> Post(PostsCreateRequest post)
         {
@@ -56,7 +45,7 @@ namespace Aplikacija1.Controllers
             return CreatedAtAction(nameof(GetDetails), new { id = result.Id }, result);
         }
 
-        [Authorize(Roles = Roles.User)]
+        //[Authorize(Roles = Roles.User)]
         [HttpDelete]
         public async Task<ActionResult> Delete(int id)
         {

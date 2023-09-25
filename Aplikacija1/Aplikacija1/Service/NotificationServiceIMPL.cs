@@ -52,7 +52,7 @@ namespace Aplikacija1.Service
             return await _notificationRepository.GetNotificationsForPost(postId);
         }
 
-        public async Task<IEnumerable<Notification>> GetNotiificationsByUser(int userId)
+        public async Task<IEnumerable<Notification>> GetNotiificationsByUser(String userId)
         {
             return await _notificationRepository.GetNotificationsByUser(userId);
         }
